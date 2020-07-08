@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
+  get '/profile', to: 'users#profile'
+
   resources :users
+
 
   resources :vehicles
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -1,3 +1,14 @@
 <h1>These are all of your Vehicle(s)</h1>
 
 <%= link_to "Add a vehicle", new_vehicle_path %>
+
+
+<% @vehicles.each do |v| %>
+<div>
+<%= v.make %>
+<%= v.model %>
+<%= v.year %>
+<%= v.mileage %>
+<%= v.wheel_size %>
+<% end %>
+</div>

@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         @user = User.find_by(user_name: params[:user][:user_name])
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
-            redirect_to vehicles_path
+            redirect_to '/profile'
         else
             redirect_to '/login' #new
         end
