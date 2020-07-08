@@ -1,5 +1,4 @@
 class Issue < ApplicationRecord
-    belongs_to :users
-    belongs_to :mechanics
-    has_many :vehicles
+    belongs_to :mechanic
+    belongs_to :vehicle
 end
