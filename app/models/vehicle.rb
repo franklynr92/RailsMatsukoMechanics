@@ -3,3 +3,19 @@ class Vehicle < ApplicationRecord
     has_many :issues
     has_many :mechanics, through: :issues
 end
+
+=begin
+    <ul>
+<% @vehicles.each do |v| %>
+<li><%=v.make.capitalize %></li>
+<li><%= v.model.capitalize %></li>
+<li><%= v.year %></li>
+<li><%= v.mileage %></li>
+<li><%=v.wheel_size %></li>
+<% end %>
+
+</ul>
+
+
+    
+=end

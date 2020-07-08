@@ -1,8 +1,19 @@
 <%= link_to "Vehicles Home", vehicles_path%>
 <br />
 <br />
-<%= @vehicle.make %>
-<%= @vehicle.model %>
-<%= @vehicle.year %>
-<%= @vehicle.mileage %>
-<%= @vehicle.wheel_size %>
+<table style="width:50%">
+<tr>
+<th>Make</th>
+<th>Model</th>
+<th>Year</th>
+<th>Mileage</th>
+<th>Wheel size</th>
+</tr>
+<tr>
+<td><%= @vehicle.make.capitalize %></td>
+<td><%= @vehicle.model.capitalize %></td>
+<td><%= @vehicle.year %></td>
+<td><%= @vehicle.mileage %></td>
+<td><%= @vehicle.wheel_size %></td>
+</tr>
+</table>

@@ -1,7 +1,11 @@
 class VehiclesController < ApplicationController
 
     def index
-        @vehicles = Vehicle.all    
+        #if !!session
+        session[:user_id]
+        #byebug
+        @vehicles = Vehicle.all   
+        #end
     end
 
 
@@ -10,9 +14,8 @@ class VehiclesController < ApplicationController
     end
 
     def create
-    @vehicle = Vehicle.new(vehicle_params)
-    @vehicle.user_id = session[:user_id]
-    byebug
+        @vehicle = Vehicle.new(vehicle_params)
+       @vehicle.user_id = session[:user_id]
      if @vehicle.save
       redirect_to vehicle_path(@vehicle)  
      else
