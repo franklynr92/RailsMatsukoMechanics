@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2020_07_08_024305) do
     t.string "make"
     t.string "model"
     t.integer "year"
+    t.integer "mileage"
+    t.integer "wheel_size"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

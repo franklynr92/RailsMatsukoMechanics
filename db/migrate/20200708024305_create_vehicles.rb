@@ -4,6 +4,8 @@ class CreateVehicles < ActiveRecord::Migration[6.0]
       t.string :make
       t.string :model
       t.integer :year
+      t.integer :mileage
+      t.integer :wheel_size
       t.integer :user_id
 
       t.timestamps
