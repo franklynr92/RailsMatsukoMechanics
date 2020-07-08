@@ -3,7 +3,6 @@ class VehiclesController < ApplicationController
     def index
         #if !!session
         session[:user_id]
-        #byebug
         @vehicles = Vehicle.all   
         #end
     end
