@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_07_08_024305) do
 
   create_table "issues", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "vehicle_id"
     t.integer "mechanic_id"
     t.string "description_of_issue"
     t.boolean "resolved"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_07_08_024305) do
 
   create_table "mechanics", force: :cascade do |t|
     t.string "name"
-    t.string "wizard_name"
+    t.string "mechanic_name"
     t.string "password_digest"
     t.string "email"
     t.datetime "created_at", precision: 6, null: false

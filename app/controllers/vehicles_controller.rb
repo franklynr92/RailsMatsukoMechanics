@@ -1,8 +1,7 @@
 class VehiclesController < ApplicationController
 
     def index
-       # byebug
-        @vehicles = Vehicle.find_by(id: params[:id])
+        @vehicles = Vehicle.all    
     end
 
 
@@ -12,16 +11,18 @@ class VehiclesController < ApplicationController
 
     def create
     @vehicle = Vehicle.new(vehicle_params)
+    @vehicle.user_id = session[:user_id]
+    byebug
      if @vehicle.save
-        #byebug
-      redirect_to vehicles_path(@vehicle)  
+      redirect_to vehicle_path(@vehicle)  
      else
         render :show
      end
+
     end
 
     def show
-        @vehicle = Vehicle.find_by(:id)
+        @vehicle = Vehicle.find_by(id: params[:id])
     end
 
 
@@ -31,4 +32,5 @@ class VehiclesController < ApplicationController
     def vehicle_params
       params.require(:vehicle).permit(:make, :model, :year, :mileage, :wheel_size)
     end
+
 end
