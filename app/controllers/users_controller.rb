@@ -4,6 +4,8 @@ class UsersController < ApplicationController
     end
 
     #signup
-    def create  
+    def create
     end
+    
+    
 end
