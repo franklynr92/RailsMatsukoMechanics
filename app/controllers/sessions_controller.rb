@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
 
     def new
        render :login 
+       @user = User.new
     end
     
     def create
