@@ -1,5 +1,5 @@
 class VehiclesController < ApplicationController
 
-    def show
+    def index
     end
 end
