@@ -1,0 +1,2 @@
+class MechanicSessionsController < ApplicationController
+end
