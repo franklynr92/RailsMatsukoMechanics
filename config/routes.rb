@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :issues
   resources :mechanics
+  resources :mechanic_sessions
 
 
   resources :vehicles
