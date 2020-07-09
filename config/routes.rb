@@ -7,12 +7,13 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   get '/profile', to: 'users#profile'
+  #get '/mechanic/profile' to: 'mechanics#profile'
 
   resources :users
 
   resources :issues
   resources :mechanics
-  resources :mechanic_sessions
+  
 
 
   resources :vehicles
