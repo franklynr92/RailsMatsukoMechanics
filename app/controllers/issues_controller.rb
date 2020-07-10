@@ -11,7 +11,7 @@ class IssuesController < ApplicationController
         @issue = Issue.new(issue_params)
        
        #@issue.user_id = session[:user_id]
-     if @issue.save(validate: false)
+     if @issue.save
         
       redirect_to issues_path(@issue)  
      else
@@ -22,6 +22,7 @@ class IssuesController < ApplicationController
     end
 
     def show
+      byebug
         @issue = Issue.find_by(id: params[:id])
     end
 
