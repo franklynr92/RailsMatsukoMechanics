@@ -4,13 +4,23 @@ class MechanicsController < ApplicationController
     end
 
     def create
-        @mechanic = Mechanic.find_by(mechanic_name: params[:mechanic][:mechanic_name])
-        if @mechanic && @mechanic.authenticate(params[:mechanic][:password])
+        @mechanic = Mechanic.new(mechanic_params)
+        if @mechanic.save
             session[:mechanic_id] = @mechanic.id
-            redirect_to '/profile'
+            redirect_to mechanic_path(@mechanic)
         else
-            redirect_to '/login' #new
+            render :new #new
         end
+    end
+
+    def show
+        @mechanic = Mechanic.find_by(id: params[:id])
+    end
+
+    private
+
+    def mechanic_params
+        params.require(:mechanic).permit(:name, :email, :mechanic_name, :password)
     end
 
 end
