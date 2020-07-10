@@ -5,6 +5,8 @@ class CreateIssues < ActiveRecord::Migration[6.0]
       t.integer :mechanic_id
       t.string :description_of_issue
       t.boolean :resolved
+      t.datetime :datetime
+      t.string :title
       t.timestamps
     end
   end

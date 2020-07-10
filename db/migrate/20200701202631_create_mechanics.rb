@@ -5,6 +5,7 @@ class CreateMechanics < ActiveRecord::Migration[6.0]
       t.string :mechanic_name
       t.string :password_digest
       t.string :email
+      t.boolean :admin
      
       t.timestamps 
     end

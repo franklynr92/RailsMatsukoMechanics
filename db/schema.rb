@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 2020_07_08_024305) do
     t.integer "mechanic_id"
     t.string "description_of_issue"
     t.boolean "resolved"
+    t.datetime "datetime"
+    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -26,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_07_08_024305) do
     t.string "mechanic_name"
     t.string "password_digest"
     t.string "email"
+    t.boolean "admin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -46,6 +49,8 @@ ActiveRecord::Schema.define(version: 2020_07_08_024305) do
     t.integer "mileage"
     t.integer "wheel_size"
     t.integer "user_id"
+    t.string "vehicle_name"
+    t.string "color"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
