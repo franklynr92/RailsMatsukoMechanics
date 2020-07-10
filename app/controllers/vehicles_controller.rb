@@ -18,7 +18,7 @@ class VehiclesController < ApplicationController
      if @vehicle.save
       redirect_to vehicle_path(@vehicle)  
      else
-        render :show
+        render :new
      end
 
     end
