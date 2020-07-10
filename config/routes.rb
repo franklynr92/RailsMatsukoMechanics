@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'admin/orders', to: 'mechanic_admin#orders'
   get 'admin/invoice', to: 'mechanic_admin#invoice'
   
-  get '/profile', to: 'users#profile'
+  get '/profile', to: 'users#profile' 
   #get '/mechanic/profile' to: 'mechanics#profile'
 
   resources :users
