@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+.erb {
+    color: blue;
+}
+
+h1 {
+    color: RGBA(250, 10, 250, 1);
+    font-weight: bold;
+}
+
+/* a:visited {
+    color: olive;
+}
+
+a:hover {
+    color: olive;
+} */
+
+a {
+    color: olive;
+}
