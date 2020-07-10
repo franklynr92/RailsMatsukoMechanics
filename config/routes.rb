@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
+  get 'admin/home', to: 'mechanic_admin#home'
+  get 'admin/orders', to: 'mechanic_admin#orders'
+  get 'admin/invoice', to: 'mechanic_admin#invoice'
+  
   get '/profile', to: 'users#profile'
   #get '/mechanic/profile' to: 'mechanics#profile'
 
