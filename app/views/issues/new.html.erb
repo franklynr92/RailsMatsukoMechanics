@@ -1,4 +1,9 @@
 <h1>Add an issue</h1>
+
 <%= form_for @issue do |f| %>
 
-<%= f.label :description_of_issue%>
+<%= f.label :description_of_issue %>
+<%= f.text_area :description_of_issue %>
+
+<%= f.submit "Create your issue" %>
+<% end %>
