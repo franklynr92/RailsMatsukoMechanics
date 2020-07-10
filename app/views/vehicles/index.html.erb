@@ -8,19 +8,23 @@
 <div>
 <table style="width:50%">
 <tr>
+<th>Name</th>
 <th>Make</th>
 <th>Model</th>
 <th>Year</th>
 <th>Mileage</th>
 <th>Wheel size</th>
+<th>Color</th>
 </tr>
 <tr>
 <% @vehicles.each do |v| %>
+<td><%=v.vehicle_name  %></td>
 <td><%=v.make.capitalize %></td>
 <td><%=link_to "#{v.model.capitalize}", vehicle_path(v) %></td>
 <td><%= v.year %></td>
 <td><%= v.mileage %></td>
 <td><%=v.wheel_size %></td>
+<td><%= v.color %></td>
 </tr>
 <% end %>
 </table>

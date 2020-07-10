@@ -3,18 +3,22 @@
 <br />
 <table style="width:50%">
 <tr>
+<th>Vehicle Name</th>
 <th>Make</th>
 <th>Model</th>
 <th>Year</th>
 <th>Mileage</th>
 <th>Wheel size</th>
+<th>Color</th>
 </tr>
 <tr>
+<td><%= @vehicle.vehicle_name  %></td>
 <td><%= @vehicle.make.capitalize %></td>
 <td><%= @vehicle.model.capitalize %></td>
 <td><%= @vehicle.year %></td>
 <td><%= @vehicle.mileage %></td>
 <td><%= @vehicle.wheel_size %></td>
+<td><%= @vehicle.color %></td>
 </tr>
 </table>
 
