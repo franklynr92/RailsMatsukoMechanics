@@ -1,4 +1,12 @@
 <h1>Here are your Issues for your car</h1>
-
+<% @issue.each do |i| %>
+<ul>
+<li>
+Make:<em class="erb"> <%= i.vehicle.make.capitalize if i.vehicle_id%></em> <br>
+Model:<em class="erb"><%= i.vehicle.model.capitalize if i.vehicle_id %></em> <br>Issue: <em class="erb"><%= i.description_of_issue.capitalize %></em>
+</li>
+<hr>
+</ul>
+<% end %>
 
 <h1><%= link_to "Create your Issue", new_issue_path%></h1>
