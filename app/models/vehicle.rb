@@ -15,7 +15,7 @@ end
 <% end %>
 
 </ul>
-
+ Will also need  method that will not save a vehicle if the name, make, and model are the same
 
     
 =end
