@@ -10,11 +10,21 @@
   </head>
   <body>
     <h1>Welcome Matsuko's Mechanics</h1>
-    <%= if @mechanic.admin.true? %>
-    <h1>Welcome Matsuko's Admin</h1>
-    
+      <%  if current_mechanic.admin %>
+      <%= current_mechanic.name %>
+      <% end %>
+      
     
     <%= yield %>
     <%= link_to 'Log Out', logout_path, method: :delete %>
+    
+    <h1>Welcome Matsuko's Admin</h1>
+    
+    
+    
+    
+
+
+    
   </body>
 </html>

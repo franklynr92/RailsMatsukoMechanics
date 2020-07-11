@@ -25,7 +25,7 @@ gem 'dotenv-rails'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 
-
+gem 'coffee-script-source', '1.8.0'
 
 
 gem 'erd'
