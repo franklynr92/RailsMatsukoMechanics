@@ -1,6 +1,8 @@
 <h1>Add an issue</h1>
 
 <%= form_for @issue do |f| %>
+<%= f.label :title %>
+<%= f.text_area :title%>
 
 <%= f.label :description_of_issue %>
 <%= f.text_area :description_of_issue %>

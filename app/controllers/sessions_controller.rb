@@ -6,6 +6,11 @@ class SessionsController < ApplicationController
         render :login 
     end
     
+    def oauth_login
+
+        u.username = auth['info']['email'].split(@).first
+    end
+    
     def create
         if params[:user]
         @user = User.find_by(user_name: params[:user][:user_name])

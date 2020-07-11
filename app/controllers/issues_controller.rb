@@ -15,14 +15,13 @@ class IssuesController < ApplicationController
         
       redirect_to issues_path(@issue)  
      else
-        byebug
-        render :new
+        
+        render :show
      end
 
     end
 
     def show
-      byebug
         @issue = Issue.find_by(id: params[:id])
     end
 
@@ -30,7 +29,7 @@ class IssuesController < ApplicationController
     private
 
     def issue_params
-      params.require(:issue).permit(:description_of_issue)
+      params.require(:issue).permit(:description_of_issue, :title)
     end
 
 

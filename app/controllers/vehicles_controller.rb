@@ -1,10 +1,8 @@
 class VehiclesController < ApplicationController
 
     def index
-        #if !!session
         session[:user_id]
         @vehicles = Vehicle.all   
-        #end
     end
 
 

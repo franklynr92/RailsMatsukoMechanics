@@ -13,13 +13,27 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#profile' 
   #get '/mechanic/profile' to: 'mechanics#profile'
 
-  resources :users
+  resources :users do
+
+    resources :vehicles
+
+  end
 
   resources :issues
-  resources :mechanics
-  
+
+  resources :mechanics do
+
+    resources :admin
+
+end
+
+resources :admin
 
 
-  resources :vehicles
+  resources :vehicles do
+
+    resources :issues
+
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
