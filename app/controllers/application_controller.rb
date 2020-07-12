@@ -6,6 +6,6 @@ helper_method :current_user, :current_mechanic
     end
 
     def current_mechanic
-      @current_mechanic ||= Mechanic.find_by_id(session[:mechanic_id]) if session[:user_id]
+      @current_mechanic ||= Mechanic.find_by_id(session[:mechanic_id]) if session[:mechanic_id]
     end
 end
