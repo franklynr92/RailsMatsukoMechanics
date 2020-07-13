@@ -10,9 +10,15 @@
   </head>
 
   <body>
-  <%= render 'layouts/navbar' %>
+  
   <h1>Welcome To Matsuko Mechanics Forum</h1>
-    <%= link_to 'Log Out', logout_path, method: :delete %>
+    
+<nav class="navbar">
+      <%= link_to 'Log Out', logout_path, method: :delete%>
+      <%= link_to 'All vehicles', vehicles_path, class: 'navlink'%>
+      <%= link_to 'Create a vehicle', new_vehicle_path, class: 'navlink' %>
+      <%= link_to 'All issues', issues_path, class: 'navlink' %>
+  </nav>
     <%= yield %>
   </body>
 </html>

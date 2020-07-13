@@ -10,13 +10,13 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             session[:user_id] = @user.id
-            redirect_to '/profile'
+            redirect_to :show
         else
             render :new
         end
     end
 
-    def profile
+    def show
         @user = User.find_by(id: session[:user_id]) #it is the first time it is going to the profile
         if @user
          render :show
@@ -25,9 +25,9 @@ class UsersController < ApplicationController
         end
     end
     
-    def show
-        @user = User.find_by(id: params[:id]) #it is getting the params
-    end
+    #def show
+     #   @user = User.find_by(id: params[:id]) #it is getting the params
+    #end
     
 
     private
