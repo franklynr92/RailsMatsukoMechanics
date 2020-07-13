@@ -52,6 +52,7 @@ class VehiclesController < ApplicationController
     end
 
     def destroy
+        raise params.inspect
     end
 
     private
