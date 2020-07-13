@@ -45,6 +45,10 @@ class VehiclesController < ApplicationController
     end
 
     def update
+        @vehicle = Vehicle.find_by(id: params[:id])
+        @vehicle.update(vehicle_params)
+        flash[:notice] = "Vehicle Updated"
+        redirect_to vehicle_path(@vehicle)
     end
 
     def destroy
@@ -53,7 +57,7 @@ class VehiclesController < ApplicationController
     private
 
     def vehicle_params
-      params.require(:vehicle).permit(:vehicle_name, :make, :model, :year, :mileage, :wheel_size, :color )
+      params.require(:vehicle).permit(:vehicle_name, :make, :model, :year, :mileage, :wheel_size, :color)
     end
 
 end
