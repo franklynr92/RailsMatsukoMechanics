@@ -10,21 +10,3 @@
     <%= f.submit "Log In" %>
 
 <% end%>
-
-<%= form_for(@mechanic), url:  do |f| %>
-
-    <%= f.label :name %>
-    <%= f.text_field :name%>
-    <br />
-    <%= f.label :email %>
-    <%= f.email_field :email%>
-    <br />
-    <%= f.label :mechanic_name %>
-    <%= f.text_field :mechanic_name%>
-    <br />
-    <%= f.label :password %>
-    <%= f.password_field :password%>
-    <br />
- 
-    <%= f.submit "Create Mechanic Profile"%>
-<% end %>

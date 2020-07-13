@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :vehicles
 
   end
+  
 
   resources :vehicles do
 
@@ -23,8 +24,6 @@ Rails.application.routes.draw do
 
   resources :issues
 
-
-resources :mechanic
 
 
  

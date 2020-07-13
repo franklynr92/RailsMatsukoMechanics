@@ -1,7 +1,13 @@
 class Vehicle < ApplicationRecord
     belongs_to :user #needs user_id to save to database with belongs_to
     has_many :issues
-    has_many :mechanics, through: :issues
+    
+
+    scope :high_mileage_vehicles, -> {where("mileage > 100000")}
+
+    def high_mileage_vehicles?
+        self.mileage > 100000 ? true : false
+    end
 end
 
 =begin
