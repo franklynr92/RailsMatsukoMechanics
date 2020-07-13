@@ -24,9 +24,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'dotenv-rails'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
-
+gem 'jquery-rails'
 gem 'coffee-script-source', '1.8.0'
-
+gem "bootstrap_form", "~> 4.0"
 
 gem 'erd'
 
@@ -45,6 +45,7 @@ group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
+  gem 'rails-erd'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
