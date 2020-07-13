@@ -11,14 +11,14 @@ class SessionsController < ApplicationController
     end
     
     def create
-    if params[:user]
+    #if params[:user]
       @user = User.find_by(user_name: params[:user][:user_name])
-        if @user && @user.authenticate(params[:user][:password])
-            session[:user_id] = @user.id
-            redirect_to user_path(@user.id)
-        else
-            redirect_to '/login' #new
-        end
+      if @user && @user.authenticate(params[:user][:password])
+        session[:user_id] = @user.id
+        redirect_to user_path(@user.id)
+      else
+        redirect_to '/login' #new
+      end
         #elsif params[:mechanic]
          #   @mechanic = Mechanic.find_by(mechanic_name: params[:mechanic][:mechanic_name])
           #  if @mechanic && @mechanic.authenticate(params[:mechanic][:password])
