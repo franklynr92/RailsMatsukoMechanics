@@ -14,10 +14,11 @@ class SessionsController < ApplicationController
     #if params[:user]
       @user = User.find_by(user_name: params[:user][:user_name])
       if @user && @user.authenticate(params[:user][:password])
-        login_url @user
+        log_in @user
         redirect_to user_path(@user.id)
       else
-        redirect_to '/login' #new
+        flash[:notice] = "Username/Password incorrect"
+        redirect_to '/login' 
       end
     end
     
@@ -26,7 +27,7 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-        logout_url
+        log_out
         redirect_to root_url
     end
   

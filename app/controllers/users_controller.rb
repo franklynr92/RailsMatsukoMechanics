@@ -21,7 +21,8 @@ class UsersController < ApplicationController
         if @user
          render :show
         else 
-          redirect_to '/login'
+          flash[:notice] = "Please log in"
+          redirect_to '/login' 
         end
     end
     

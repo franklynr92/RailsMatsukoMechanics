@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-helper_method :current_user, :current_mechanic
+helper_method :current_user, :current_mechanic, :logged_in?, :log_in, :log_out
     
     def current_user
       @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
@@ -8,4 +8,18 @@ helper_method :current_user, :current_mechanic
     def current_mechanic
       @current_mechanic ||= Mechanic.find_by_id(session[:mechanic_id]) if session[:mechanic_id]
     end
+
+    def log_in(user)
+      session[:user_id] = user.id
+    end
+
+    def logged_in?
+      !current_user.nil?
+    end
+
+    def log_out
+      reset_session
+      @current_user = nil
+    end
+
 end
