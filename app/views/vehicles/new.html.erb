@@ -1,5 +1,5 @@
 <h1>Add your vehicle!</h1>
-<h1>hello</h1>
+<h1>hello <%= current_user.name %></h1>
 
 <%= form_for @vehicle do |f| %>
     <%= f.label :vehicle_name%>
