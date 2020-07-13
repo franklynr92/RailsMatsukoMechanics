@@ -48,7 +48,7 @@ class VehiclesController < ApplicationController
         @vehicle = Vehicle.find_by(id: params[:id])
         @vehicle.update(vehicle_params)
         flash[:notice] = "Vehicle Updated"
-        redirect_to vehicle_path(@vehicle)
+        redirect_to vehicle_path(@vehicle) 
     end
 
     def destroy
