@@ -2,6 +2,7 @@
 <br />
 <br />
 <table style="width:50%">
+<thead class="white">
 <tr>
 <th>Vehicle Name</th>
 <th>Make</th>
@@ -11,6 +12,8 @@
 <th>Wheel size</th>
 <th>Color</th>
 </tr>
+</thead>
+<tbody class="white">
 <tr>
 <td><%= @vehicle.vehicle_name  %></td>
 <td><%= @vehicle.make.capitalize %></td>
@@ -20,6 +23,7 @@
 <td><%= @vehicle.wheel_size %></td>
 <td><%= @vehicle.color %></td>
 </tr>
+</tbody>
 </table>
 
 <h1><%= link_to "What issues have you had?", issues_path%></h1>

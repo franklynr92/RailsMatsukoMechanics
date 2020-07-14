@@ -5,10 +5,9 @@
 <%= link_to "Add a vehicle", new_vehicle_path %>
 
 
-<div class="table">
-<span class="border border-primary">
+<div>
 <table class="table">
- <thead class="thead-light">
+ <thead class="white">
     <tr>
      <th scope="col"></th>
      <th scope="col">Name</th>
@@ -20,7 +19,7 @@
      <th scope="col">Color</th>
     </tr>
  </thead>
-<tbody>
+<tbody class="white">
 
 <tr>
 <% @vehicles.each do |v| %>
@@ -37,7 +36,6 @@
 <% end %>
 </tbody>
 </table>
-</span>
 </div>
 
 
