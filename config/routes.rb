@@ -16,13 +16,14 @@ Rails.application.routes.draw do
   end
 
 
-  resources :issues do
+  resources :vehicles do
 
-    resources :vehicles
+    resources :issues
 
   end
 
   resources :vehicles
+  resources :issues
 
 
 
