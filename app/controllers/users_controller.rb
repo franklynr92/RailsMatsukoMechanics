@@ -10,6 +10,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             session[:user_id] = @user.id
+            flash[:message] = "Hello NEW User"
             redirect_to :show
         else
             render :new

@@ -1,6 +1,12 @@
 <h1>Hello this is the edit route</h1>
 
 <%= form_for @vehicle do |f| %>
+<ul>
+    <% @vehicle.errors_full_messages.each do |error_message| %>
+        
+        <li><%= error_message %></li>
+    <% end %>
+</ul>
     <%= f.label :vehicle_name%>
     <%= f.text_field :vehicle_name%>
 
