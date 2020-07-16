@@ -2,6 +2,7 @@ class IssuesController < ApplicationController
     def index
       if logged_in?
         @issues = current_user.user_issues
+        @vehicle = current_user.vehicles
       else
         flash[:notice]= "Please log in"
         redirect_to '/login' 
@@ -22,6 +23,10 @@ class IssuesController < ApplicationController
       if logged_in?
         @issue = Issue.new(issue_params)
         if @issue.save
+          @ui = UserIssue.new 
+          @ui.issue_id = @issue.id
+          @ui.user_id = @current_user.id
+          @ui.save
           redirect_to issue_path(@issue)
         else
           flash[:notice]= "Issue didn't save"

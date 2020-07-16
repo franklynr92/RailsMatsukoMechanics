@@ -1,6 +1,7 @@
 <h1>Here are your Issues for your car</h1>
 
-<% @issues.each do |i| %>
+<% @issues.all.each do |i| %>
+
 <ul class="p-3 mb-2 bg-info text-white">
 <li>
 Make:<em class="erb"> <%= i.vehicle.make.capitalize if i.vehicle_id%></em> <br>
