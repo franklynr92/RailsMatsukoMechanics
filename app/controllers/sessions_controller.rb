@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:oauth_login]
     
 
     def new
@@ -15,7 +14,6 @@ class SessionsController < ApplicationController
         u.email = auth['info']['email']
       end
       
-
       log_in @user
       redirect_to user_path @user.id
     end
@@ -42,10 +40,6 @@ class SessionsController < ApplicationController
         redirect_to root_url
     end
 
-    private
-    
-    def auth
-      request.env['omniauth.auth']
-    end
+   
   
 end
