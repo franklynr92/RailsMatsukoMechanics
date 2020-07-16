@@ -1,7 +1,9 @@
 class IssuesController < ApplicationController
     def index
       if logged_in?
-        @issues = current_user.user_issues
+        @unsorted_issues = current_user.user_issues.map {|ui| Issue.find_by_id(ui.issue_id)}
+        @issues = @unsorted_issues.sort{|a, b| a.vehicle_id <=> b.vehicle_id }
+#an array of elements and i want to iterate 
         @vehicle = current_user.vehicles
       else
         flash[:notice]= "Please log in"

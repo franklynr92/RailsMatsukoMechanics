@@ -1,13 +1,23 @@
-<h1>Here are your Issues for your car</h1>
+<h1>Here are your Issues for your car's</h1>
+<% @vehicle.each do |v|%>
+<ul class="p-3 mb-2 bg-info text-white">
+<li>
+ <br>Vehicle: <em class="erb"><%= v.vehicle_name.capitalize %> <%=v.make.capitalize%> <%=v.model.capitalize%></em>
+</li>
 
-<% @issues.all.each do |i| %>
+</ul>
+<% end %>
+
+<% @issues.each do |i| %>
+
 
 <ul class="p-3 mb-2 bg-info text-white">
 <li>
-Make:<em class="erb"> <%= i.vehicle.make.capitalize if i.vehicle_id%></em> <br>
-Model:<em class="erb"><%= i.vehicle.model.capitalize if i.vehicle_id %></em> <br>Issue: <em class="erb"><%= i.description_of_issue.capitalize %></em>
+Date:<em class="erb"><%= i.date %></em>
+<br>
+ <br>Issue: <em class="erb"><%= i.title %></em> <%= i.description_of_issue.capitalize %>
 </li>
-<hr>
+
 </ul>
 <% end %>
 

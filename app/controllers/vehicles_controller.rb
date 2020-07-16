@@ -41,14 +41,27 @@ class VehiclesController < ApplicationController
     end
 
     def edit
+      if logged_in?
         @vehicle = Vehicle.find_by(id: params[:id])
+      else
+        flash[:notice] = "Please log in"
+          redirect_to '/login' 
+        end
     end
 
     def update
-        @vehicle = Vehicle.find_by(id: params[:id])
-        @vehicle.update(vehicle_params)
+      if logged_in?
+        if @vehicle.update(vehicle_params)
         flash[:notice] = "Vehicle Updated"
-        redirect_to vehicle_path(@vehicle) 
+        redirect_to vehicles_path
+        else
+          flash[:notice] = "No changes made"
+          render :edit
+        end
+      else
+          flash[:notice] = "Please log in"
+          redirect_to '/login' 
+        end
     end
 
     def destroy

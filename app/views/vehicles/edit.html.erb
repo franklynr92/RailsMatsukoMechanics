@@ -1,6 +1,6 @@
 <h1>Hello this is the edit route</h1>
 
-<%= form_for @vehicle do |f| %>
+<%= bootstrap_form_for @vehicle do |f| %>
 
   <%= render partial: 'layouts/errors', locals: {object: @vehicle} %>
     
@@ -24,8 +24,10 @@
 
     <%= f.label :color %>
     <%= f.text_field :color, value: @vehicle.color%>
-    <%= button_to "delete", @vehicle, :method => "delete" %>
-    <%= f.submit "Edit your vehicle" %>
 
+    
 
+    
+  <%= button_to "delete", @vehicle, :method => "delete" %>
+  <%= f.submit 'Update', data: { disable_with: false } %>
     <% end %>

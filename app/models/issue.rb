@@ -3,4 +3,6 @@ class Issue < ApplicationRecord
     has_many :user_issues
     
     validates :vehicle_id, :description_of_issue, :date, :title, presence: true
+
+    
 end
