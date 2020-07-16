@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   
   root 'sessions#home'  
+  get '/auth/google_oauth2/callback' => 'sessions#oauth_login'
   get '/signup' => 'users#new'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get 'exit', to: 'sessions#destroy', as: :logout
-  get '/auth/google_oauth2/callback' => 'sessions#oauth_login'
+  
   
   #get '/profile', to: 'users#profile' 
   #get '/mechanic/profile' to: 'mechanics#profile'
