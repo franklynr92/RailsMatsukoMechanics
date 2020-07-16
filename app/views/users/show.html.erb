@@ -1,5 +1,5 @@
 <h1>hello <%= @user.name %></h1>
-<h2 class="white">You have <p class="erb"><%= Vehicle.all.length %> vehicles</p></h2>
+<h2 class="white">You have <p class="erb"><%= @user.vehicles.length %> vehicles</p></h2>
 <h2>Each vehicle has this many issues</h2>
 <div class="white">
 <%= link_to "Your Vehicles Home", user_vehicles_path(@user.id) %>

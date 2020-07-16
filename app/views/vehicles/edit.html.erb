@@ -1,6 +1,6 @@
 <h1>Hello this is the edit route</h1>
 
-<%= bootstrap_form_for @vehicle do |f| %>
+<%= bootstrap_form_for @vehicle, url: vehicle_path(@vehicle), method: :patch do |f| %>
 
   <%= render partial: 'layouts/errors', locals: {object: @vehicle} %>
     
@@ -28,6 +28,8 @@
     
 
     
-  <%= button_to "delete", @vehicle, :method => "delete" %>
-  <%= f.submit 'Update', data: { disable_with: false } %>
+  
+  <%= f.submit%>
+  
     <% end %>
+<%= button_to "delete", @vehicle, :method => "delete" %>

@@ -22,7 +22,7 @@
 <tbody class="white">
 
 <tr>
-<% @vehicles.each do |v| %>
+<% current_user.vehicles.each do |v| %>
 <th scope="col"></th>
 <td><%=v.vehicle_name  %></td>
 <td><%=v.make.capitalize %></td>

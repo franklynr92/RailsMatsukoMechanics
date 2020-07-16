@@ -50,7 +50,9 @@ class VehiclesController < ApplicationController
     end
 
     def update
+      
       if logged_in?
+        @vehicle = Vehicle.find_by(id: params[:id])
         if @vehicle.update(vehicle_params)
         flash[:notice] = "Vehicle Updated"
         redirect_to vehicles_path
