@@ -7,12 +7,16 @@ class SessionsController < ApplicationController
     end
     
     def oauth_login
-      byebug
-      #user = User.find_or_create_by(uid: auth['uid']) do |u|
-        #u.password = SecureRandom.hex
-        #u.username = auth['info']['email'].split(@).first
-        #u.name = auth['info]['name`]
-        #u.email = auth['info']['email']
+      @user = User.find_or_create_by(uid: auth['uid']) do |u|
+        u.user_name = auth['info']['email'].split('@').first
+        u.password = SecureRandom.hex
+        u.name = auth['info']['name']
+        u.email = auth['info']['email']
+      end
+      
+
+      log_in @user
+      redirect_to user_path @user.id
     end
     
     def create
@@ -20,7 +24,7 @@ class SessionsController < ApplicationController
       @user = User.find_by(user_name: params[:user][:user_name])
       if @user && @user.authenticate(params[:user][:password])
         log_in @user
-        redirect_to user_path(@user.id)
+        redirect_to user_path @user.id
       else
         flash[:notice] = "Username/Password incorrect"
         redirect_to '/login' 
@@ -35,6 +39,12 @@ class SessionsController < ApplicationController
         log_out
         flash[:notice] = "You have logged out"
         redirect_to root_url
+    end
+
+    private
+    
+    def auth
+      request.env['omniauth.auth']
     end
   
 end
