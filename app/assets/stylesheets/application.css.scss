@@ -12,6 +12,11 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap"; 
+@import "rails_bootstrap_forms";  
+@import "font-awesome";
+
 .vehicle {
     background-image: url(work_shop.jpg);
     height: 100%;
@@ -20,6 +25,13 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.field-with-errors {    
+    padding: 2px;    
+    background-color: red;    
+    display: table;  
+} 
+
 
 .shibu {
     background-image: url(cute_shibu.jpg);
