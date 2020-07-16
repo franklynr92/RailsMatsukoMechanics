@@ -1,7 +1,10 @@
 <ul>
+
+<% if object.nil? && object.errors.any? %>
     <% object.errors.full_messages.each do |error_message| %>
      
         <li><%= error_message %></li>
     
     <% end %>
+<% end %>    
 </ul>

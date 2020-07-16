@@ -2,7 +2,7 @@
 
 <%= form_for @vehicle do |f| %>
 
-  <%= render partial: 'layouts/errors', locals: {object: @user} %>
+  <%= render partial: 'layouts/errors', locals: {object: @vehicle} %>
     
     <%= f.label :vehicle_name%>
     <%= f.text_field :vehicle_name%>

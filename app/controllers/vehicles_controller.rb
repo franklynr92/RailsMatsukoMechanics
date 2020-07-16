@@ -52,7 +52,8 @@ class VehiclesController < ApplicationController
     end
 
     def destroy
-        raise params.inspect
+        Vehicle.find(params[:id]).destroy
+        redirect_to vehicles_path
     end
 
     private

@@ -1,4 +1,4 @@
-<h1>This is the issue for </h1>
+<h1>This is the issue for <%= @vehicle.vehicle_name %>  Vehicle </h1>
 <div class="white">
 <h2>Title:</h2>
 <p class="erb"><%= @issue.title %></p>
@@ -8,3 +8,5 @@
 <p class="erb"><%= @issue.description_of_issue %></p>
 
 </div>
+
+<h1><%= link_to "User Profile", user_path(current_user.id)%></h1>

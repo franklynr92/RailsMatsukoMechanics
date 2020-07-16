@@ -10,6 +10,7 @@ class IssuesController < ApplicationController
     
     def new
       if logged_in?
+        @vehicle = Vehicle.find_by(id: params[:vehicle_id])
         @issue = Issue.new
       else
         flash[:notice]= "Please log in"
@@ -21,7 +22,7 @@ class IssuesController < ApplicationController
       if logged_in?
         @issue = Issue.new(issue_params)
         if @issue.save
-          redirect_to issues_path(@issue)  
+          redirect_to issue_path(@issue)
         else
           flash[:notice]= "Issue didn't save"
           render :show
@@ -35,6 +36,7 @@ class IssuesController < ApplicationController
     def show
       if logged_in?
         @issue = Issue.find_by(id: params[:id])
+        @vehicle = Vehicle.find_by_id(@issue.vehicle_id)
       else
         flash[:notice] = "Please log in"
         redirect_to '/login'
@@ -45,7 +47,7 @@ class IssuesController < ApplicationController
     private
 
     def issue_params
-      params.require(:issue).permit(:description_of_issue, :title)
+      params.require(:issue).permit(:description_of_issue, :title, :vehicle_id, :date)
     end
 
 

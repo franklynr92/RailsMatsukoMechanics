@@ -1,13 +1,20 @@
-<h1>Add an issue</h1>
+<h1>Add an issue for your <%= @vehicle.vehicle_name %> Vehicle</h1>
 
-<%= form_for @issue do |f| %>
+<%= form_for @issue do |f|  %>
+<%= f.hidden_field :vehicle_id, :value => @vehicle.id %>
+
 <%= f.label :title %>
-<%= f.text_area :title%>
+<%= f.text_field :title%>
 
 <%= f.label :description_of_issue %>
 <%= f.text_area :description_of_issue %>
 
+<%= f.label :date %>
+<%= f.date_field :date%>
+
+
 <%= f.submit "Create your issue" %>
 <% end %>
+
 
 <p><%= link_to "Your Vehicles Home", vehicles_path %></p>
