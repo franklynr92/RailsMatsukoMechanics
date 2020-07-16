@@ -32,7 +32,7 @@ gem 'jquery-rails'
 gem 'coffee-script-source', '1.8.0'
 gem "bootstrap_form", "~> 4.0"
 gem 'thin'
-
+gem 'bootstrap', '~> 4.3.1'
 gem 'erd'
 
 # Use Active Storage variant

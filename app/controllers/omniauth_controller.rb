@@ -1,5 +1,5 @@
 class OmniauthController < ApplicationController
- 
+
     def oauth_login
         @user = User.find_or_create_by(uid: auth['uid']) do |u|
           u.user_name = auth['info']['email'].split('@').first
