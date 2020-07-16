@@ -1,13 +1,11 @@
 class IssuesController < ApplicationController
     def index
       if logged_in?
-        @issues = current_user.issues.all
-        byebug
+        @issues = current_user.user_issues
       else
         flash[:notice]= "Please log in"
         redirect_to '/login' 
       end
-      byebug
     end
     
     def new
