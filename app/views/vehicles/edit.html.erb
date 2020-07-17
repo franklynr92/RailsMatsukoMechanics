@@ -1,35 +1,27 @@
-<h1>Hello this is the edit route</h1>
-
+<h2 class="white">Edit your Vehicle</h2>
+<div class="col-4">
+<div class="alert alert-success" role="alert">
 <%= bootstrap_form_for @vehicle, url: vehicle_path(@vehicle), method: :patch do |f| %>
 
   <%= render partial: 'layouts/errors', locals: {object: @vehicle} %>
     
-    <%= f.label :vehicle_name%>
     <%= f.text_field :vehicle_name%>
 
-    <%= f.label :make %>
     <%= f.text_field :make %>
 
-    <%= f.label :model %>
     <%= f.text_field :model %>
 
-    <%= f.label :year %>
     <%= f.number_field :year %>
 
-    <%= f.label :mileage %>
     <%= f.number_field :mileage %>
 
-    <%= f.label :wheel_size %>
     <%= f.number_field :wheel_size %>
 
-    <%= f.label :color %>
     <%= f.text_field :color %>
-
-    
-
-    
   
   <%= f.submit%>
   
     <% end %>
+    </div>
+    </div>
 <%= button_to "delete", @vehicle, :method => "delete" %>

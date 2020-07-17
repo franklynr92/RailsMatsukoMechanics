@@ -1,5 +1,5 @@
 class Vehicle < ApplicationRecord
-    belongs_to :user #needs user_id to save to database with belongs_to
+    belongs_to :user 
     has_many :issues
     validates :vehicle_name, :model, :make, :color, :year, :wheel_size, presence: true
     validates :mileage, numericality: {only_integer: true}

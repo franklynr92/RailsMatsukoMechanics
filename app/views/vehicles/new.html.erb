@@ -1,6 +1,8 @@
 <h1>Add your vehicle!</h1>
 <h1>hello <%= current_user.name %></h1>
 
+<div class="alert alert-success" role="alert">
+
 <%= form_for @vehicle do |f| %>
 
   <%= render partial: 'layouts/errors', locals: {object: @vehicle} %>
@@ -29,3 +31,4 @@
     <%= f.submit "Add your vehicle" %>
 
     <% end %>
+<div>
