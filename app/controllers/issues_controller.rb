@@ -32,7 +32,8 @@ class IssuesController < ApplicationController
           redirect_to issue_path(@issue)
         else
           flash[:notice]= "Issue didn't save"
-          render :show
+          @vehicle = Vehicle.find_by(id: params[:issue][:vehicle_id])
+          render :new
         end
       else
         flash[:notice]= "Please log in"
