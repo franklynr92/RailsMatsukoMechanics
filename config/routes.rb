@@ -8,9 +8,6 @@ Rails.application.routes.draw do
   get 'exit', to: 'sessions#destroy', as: :logout
 
   
-  
-  #get '/profile', to: 'users#profile' 
-  #get '/mechanic/profile' to: 'mechanics#profile'
 
   resources :issues
 
