@@ -34,6 +34,7 @@ class VehiclesController < ApplicationController
     def show
         if logged_in?
           @vehicle = Vehicle.find_by(id: params[:id])
+          
         else
           flash[:notice] = "Please log in"
           redirect_to '/login' 
