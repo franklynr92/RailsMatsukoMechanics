@@ -10,27 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_16_171727) do
+ActiveRecord::Schema.define(version: 2020_07_22_023334) do
 
   create_table "issues", force: :cascade do |t|
-    #t.integer "vehicle_id"
-    #t.string "description_of_issue"
-    
-    #category: electrical, oil change, tires, steering, mechanical, egnines
-
     t.date "date"
-    t.string "name"
+    t.string "name_of_issue"
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "user_issues", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "issue_id"
-    t.boolean "resolved"
-    t.string "description_of_issue"
-    #t.integer vehicle_id
-    #grabs user id and issue id where user submits description
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,6 +28,13 @@ ActiveRecord::Schema.define(version: 2020_07_16_171727) do
     t.string "uid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "vehicle_issues", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "issue_id"
+    t.boolean "resolved"
+    t.string "description_of_issue"
   end
 
   create_table "vehicles", force: :cascade do |t|

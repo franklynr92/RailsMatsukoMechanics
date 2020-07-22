@@ -1,10 +1,9 @@
 class CreateIssues < ActiveRecord::Migration[6.0]
   def change
     create_table :issues do |t|
-      t.integer :vehicle_id
-      t.boolean :resolved
       t.date :date
-      t.string :name
+      t.string :name_of_issue
+      t.string :category
       t.timestamps
     end
   end

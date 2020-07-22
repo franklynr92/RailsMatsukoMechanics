@@ -1,7 +1,11 @@
 class Vehicle < ApplicationRecord
     belongs_to :user 
-    has_many :vehicle_issues #preset
-    has_many :issues, through:vehicle_issues #detail
+    has_many :vehicle_issues 
+    has_many :issues, through: :vehicle_issues 
+
+
+
+    
     validates :vehicle_name, :model, :make, :color, :year, :wheel_size, presence: true
     validates :mileage, numericality: {only_integer: true}
     validates :wheel_size, numericality: { less_than_or_equal_to: 30 }
