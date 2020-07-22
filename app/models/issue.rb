@@ -1,8 +1,9 @@
 class Issue < ApplicationRecord
-    belongs_to :vehicle
-    has_many :user_issues
+    has_many :vehicle_issues
+    has_many :vehicles, through :vehicle_issues
     
     validates :vehicle_id, :description_of_issue, :date, :title, presence: true
+    #category change
 
     
 end

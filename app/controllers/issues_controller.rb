@@ -1,7 +1,11 @@
 class IssuesController < ApplicationController
+  #before_action: logged_in?,
+  #make use of before_action
+  #review associations
+  #use before_action, set_issue, set_vehicle, if logged_in?
     def index
       if logged_in?
-        @unsorted_issues = current_user.user_issues.map {|ui| Issue.find_by_id(ui.issue_id)}
+        @unsorted_issues = current_user.user_issues {|ui| Issue.find_by_id(ui.issue_id)} #update associations so we don't have to map them out
         @issues = @unsorted_issues.sort{|a, b| a.vehicle_id <=> b.vehicle_id }
 #an array of elements and i want to iterate 
         @vehicle = current_user.vehicles

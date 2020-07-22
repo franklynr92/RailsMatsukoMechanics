@@ -8,6 +8,9 @@ helper_method :current_user, :current_mechanic, :logged_in?, :log_in, :log_out
     def current_mechanic
       @current_mechanic ||= Mechanic.find_by_id(session[:mechanic_id]) if session[:mechanic_id]
     end
+    #enums for admin, use for devise
+    #active admin 
+    #join table
 
     def log_in(user)
       session[:user_id] = user.id
