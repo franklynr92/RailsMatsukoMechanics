@@ -1,26 +1,21 @@
-<h1>Here are your Issues for your car's</h1>
-<% @vehicle.each do |v|%>
-<ul class="p-3 mb-2 bg-info text-white">
-<li>
- <br>Vehicle: <em class="erb"><%= v.vehicle_name.capitalize %> <%=v.make.capitalize%> <%=v.model.capitalize%></em>
-</li>
 
-</ul>
-<% end %>
+
 
 <% @issues.each do |i| %>
 
 
 <ul class="p-3 mb-2 bg-info text-white">
 <li>
+Issue #:<em class="erb"><%= i.id %> </em>
 Date:<em class="erb"><%= i.date %></em>
 <br>
- <br>Issue: <em class="erb"><%= i.title %></em> <%= i.description_of_issue.capitalize %>
+ <br>Issue: <em class="erb"><%= i.name_of_your_issue %></em> 
 </li>
 
 </ul>
 <% end %>
 
+<h1><%= link_to "What issues are you having?", new_issue_path%></h1>
 
 
 <h1><%= link_to "Your Vehicles Home", vehicles_path %></h1>

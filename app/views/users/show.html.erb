@@ -2,6 +2,7 @@
 <h2 class="white">You have <p class="erb"><%= @user.vehicles.length %> vehicles</p></h2>
 
 <div class="white">
+<h1><%= link_to "What issues have you had?", issues_path%></h1>
 <%= link_to "Your Vehicles Home", user_vehicles_path(@user.id) %>
 <%= link_to "New Vehicles", new_user_vehicle_path(@user.id) %>
 

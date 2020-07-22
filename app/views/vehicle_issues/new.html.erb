@@ -1,2 +1,25 @@
 <h1>Add your issue for your vehicle</h1>
 
+<div class="col-4">
+<div class="alert alert-success" role="alert">
+<%= form_for @vehicle_issue do |f|  %>
+<%= f.hidden_field :vehicle_id, :value => @vehicle.id %>
+
+<%= f.label :date %>
+<%= f.date_field :date%>
+
+<%= f.label :resolved %>
+<%= f.boolean :resolved%>
+
+<%= f.label :category%>
+<%= f.text_field :category%>
+
+<%= f.label :description_of_issue %>
+<%= f.text_area :description_of_issue %>
+
+
+
+<%= f.submit "Create your issue" %>
+<% end %>
+</div>
+</div>

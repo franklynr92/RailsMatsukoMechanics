@@ -1,17 +1,15 @@
-<h1>Add an issue for your <%= @vehicle.vehicle_name %> Vehicle</h1>
+<h1>Add an issue</h1>
 <div class="col-4">
 <div class="alert alert-success" role="alert">
 <%= form_for @issue do |f|  %>
-<%= f.hidden_field :vehicle_id, :value => @vehicle.id %>
+
 
 <%= f.label :date %>
 <%= f.date_field :date%>
 
-<%= f.label :category %>
-<%= f.text_field :category%>
 
-<%= f.label :name_of_issue %>
-<%= f.text_area :name_of_issue %>
+<%= f.label :name_of_your_issue %>
+<%= f.text_field :name_of_your_issue %>
 
 
 
@@ -20,4 +18,4 @@
 </div>
 </div>
 
-<h2><%= link_to "Your Vehicles Home", vehicles_path %></h2>
+<h2><%= link_to "Your Issues Home", issues_path %></h2>

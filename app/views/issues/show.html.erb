@@ -1,12 +1,16 @@
-<h1>This is the issue for <%= @vehicle.vehicle_name %>  Vehicle </h1>
+<h1>This is the issue # <%= @issue.id %>  </h1>
 <div class="white">
 <h2>Title:</h2>
-<p class="erb"><%= @issue.title %></p>
+<p class="erb"><%= @issue.date %></p>
 </div>
 <div class="white">
 <h2>Description:</h2>
-<p class="erb"><%= @issue.description_of_issue %></p>
+<p class="erb"><%= @issue.name_of_your_issue %></p>
 
 </div>
+
+<h2><%= link_to "Your Issues Home", issues_path %></h2>
+
+<h2><%= link_to "Your Vehicles Home", vehicles_path %></h2>
 
 <h1><%= link_to "User Profile", user_path(current_user.id)%></h1>
