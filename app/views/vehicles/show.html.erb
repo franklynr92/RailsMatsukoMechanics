@@ -11,6 +11,7 @@
 <th>Mileage</th>
 <th>Wheel size</th>
 <th>Color</th>
+<th>High Mileage</th>
 </tr>
 </thead>
 <tbody class="white">
@@ -22,6 +23,7 @@
 <td><%= @vehicle.mileage %></td>
 <td><%= @vehicle.wheel_size %></td>
 <td><%= @vehicle.color %></td>
+<td><%= !!@vehicle.high_mileage_vehicles? %></td>
 </tr>
 </tbody>
 </table>

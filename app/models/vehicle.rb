@@ -11,10 +11,10 @@ class Vehicle < ApplicationRecord
     validates :wheel_size, numericality: { less_than_or_equal_to: 30 }
     validates_numericality_of :year, less_than_or_equal_to: Time.now.year + 1
 
-    scope :high_mileage_vehicles, -> {where("mileage > 100000")}
+    scope :high_mileage_vehicles, -> {where("mileage >= 100000")}
 
     def high_mileage_vehicles?
-        self.mileage > 100000 ? true : false
+        self.mileage >= 100000 ? true : false
     end
 
     #associations
