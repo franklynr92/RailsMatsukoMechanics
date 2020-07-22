@@ -9,11 +9,12 @@ Rails.application.routes.draw do
 
   
 
-  resources :issues do
+  resources :issues 
 
-    resources :vehicle_issues
+
+  resources :vehicle_issues
     
-  end
+  
 
   resources :users do
 
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
 
   resources :vehicles do
 
-    resources :issues
+    resources :vehicle_issues
 
   end
 
