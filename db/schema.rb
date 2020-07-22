@@ -14,8 +14,7 @@ ActiveRecord::Schema.define(version: 2020_07_22_023334) do
 
   create_table "issues", force: :cascade do |t|
     t.date "date"
-    t.string "name_of_issue"
-    t.string "category"
+    t.string "name_of_your_issue"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -33,6 +32,8 @@ ActiveRecord::Schema.define(version: 2020_07_22_023334) do
   create_table "vehicle_issues", force: :cascade do |t|
     t.integer "user_id"
     t.integer "issue_id"
+    t.integer "vehicle_id"
+    t.string "category"
     t.boolean "resolved"
     t.string "description_of_issue"
   end
