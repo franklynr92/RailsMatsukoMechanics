@@ -1,7 +1,13 @@
 class VehicleIssuesController < ApplicationController
 
     def index
-      @vehicle = Vehicle.find_by_id(params[:vehicle_id])
+      if logged_in?
+        @vehicle = current_user.vehicles.all
+        @issues = Issue.all
+      else 
+        flash[:notice] = "Please log in"
+        redirect_to '/login' 
+      end
     end
 
 
@@ -9,8 +15,8 @@ class VehicleIssuesController < ApplicationController
         if logged_in?
           #grab the id of the vehicle from the route in the params
           @vehicle_issue = VehicleIssue.new
-          @vehicle = Vehicle.find_by(id: params[:id])
-          @issue = Issue.all
+          @vehicle = Vehicle.find_by(id: params[:vehicle_id])
+          @issues = Issue.all
         else 
           flash[:notice] = "Please log in"
           redirect_to '/login' 

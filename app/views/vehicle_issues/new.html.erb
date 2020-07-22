@@ -5,17 +5,17 @@
 <%= form_for @vehicle_issue do |f|  %>
 <%= f.hidden_field :vehicle_id, :value => @vehicle.id %>
 
-<%= f.label :date %>
-<%= f.date_field :date%>
 
 <%= f.label :resolved %>
-<%= f.boolean :resolved%>
+<%= f.check_box :resolved%>
 
 <%= f.label :category%>
 <%= f.text_field :category%>
 
 <%= f.label :description_of_issue %>
 <%= f.text_area :description_of_issue %>
+
+<%= f.collection_select :issue_id, @issues, :id, :name_of_your_issue, prompt: "Please select and issue" %>
 
 
 
