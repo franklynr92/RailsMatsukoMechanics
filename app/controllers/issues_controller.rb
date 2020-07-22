@@ -5,9 +5,10 @@ class IssuesController < ApplicationController
   #use before_action, set_issue, set_vehicle, if logged_in?
     def index
       if logged_in?
-        @unsorted_issues = current_user.user_issues {|ui| Issue.find_by_id(ui.issue_id)} #update associations so we don't have to map them out
-        @issues = @unsorted_issues.sort{|a, b| a.vehicle_id <=> b.vehicle_id }
+       #@unsorted_issues = current_user.user_issues {|ui| Issue.find_by_id(ui.issue_id)} #update associations so we don't have to map them out
+        #@issues = @unsorted_issues.sort{|a, b| a.vehicle_id <=> b.vehicle_id }
 #an array of elements and i want to iterate 
+        @issues = Issue.all
         @vehicle = current_user.vehicles
       else
         flash[:notice]= "Please log in"
@@ -17,7 +18,6 @@ class IssuesController < ApplicationController
     
     def new
       if logged_in?
-        @vehicle = Vehicle.find_by(id: params[:vehicle_id])
         @issue = Issue.new
       else
         flash[:notice]= "Please log in"
@@ -25,18 +25,18 @@ class IssuesController < ApplicationController
       end
     end
 
+ #@ui = UserIssue.new 
+          #@ui.issue_id = @issue.id
+          #@ui.user_id = @current_user.id
+          #@ui.save
+
     def create
       if logged_in?
         @issue = Issue.new(issue_params)
         if @issue.save
-          @ui = UserIssue.new 
-          @ui.issue_id = @issue.id
-          @ui.user_id = @current_user.id
-          @ui.save
           redirect_to issue_path(@issue)
         else
           flash[:notice]= "Issue didn't save"
-          @vehicle = Vehicle.find_by(id: params[:issue][:vehicle_id])
           render :new
         end
       else
@@ -48,7 +48,6 @@ class IssuesController < ApplicationController
     def show
       if logged_in?
         @issue = Issue.find_by(id: params[:id])
-        @vehicle = Vehicle.find_by_id(@issue.vehicle_id)
       else
         flash[:notice] = "Please log in"
         redirect_to '/login'
@@ -59,7 +58,7 @@ class IssuesController < ApplicationController
     private
 
     def issue_params
-      params.require(:issue).permit(:description_of_issue, :title, :vehicle_id, :date)
+      params.require(:issue).permit(:name_of_your_issue, :date)
     end
 
 
