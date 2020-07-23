@@ -30,21 +30,6 @@ class VehicleIssuesController < ApplicationController
       @vehicle = Vehicle.find_by_id(@vehicle_issue.vehicle_id)
     end
 
-    def edit
-      @vehicle_issue = VehicleIssue.update(vehicle_issue_params)
-    end
-
-    def update
-      @vehicle_issue = VehicleIssue.find_by(id: params[:id])
-      if @vehicle_issue.update(vehicle_issue_params)
-        flash[:notice] = "Vehicle Updated"
-        redirect_to vehicles_path
-      else
-        flash[:notice] = "No changes made"
-        render :edit
-      end
-    end
-
 
     private
 
