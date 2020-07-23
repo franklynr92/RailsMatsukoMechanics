@@ -28,4 +28,12 @@ helper_method :current_user, :current_mechanic, :logged_in?, :log_in, :log_out
       @current_user = nil
     end
 
+    def set_issue
+      @issue = Issue.find_by(id: params[:id])
+    end
+
+    def set_vehicle
+      @vehicle = Vehicle.find_by(id: params[:id])
+    end
+
 end

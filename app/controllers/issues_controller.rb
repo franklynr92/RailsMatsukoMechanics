@@ -34,7 +34,7 @@ class IssuesController < ApplicationController
     end
 
     def show
-        @issue = Issue.find_by(id: params[:id])
+      @issue = Issue.find_by(id: params[:id])
     end
 
 
@@ -44,5 +44,6 @@ class IssuesController < ApplicationController
       params.require(:issue).permit(:name_of_your_issue, :date)
     end
 
-
+    
+     
 end

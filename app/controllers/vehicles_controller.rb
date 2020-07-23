@@ -1,5 +1,5 @@
 class VehiclesController < ApplicationController
-  before_action :log_in
+  before_action :log_in, :set_vehicle, except: [:destroy]
 
     def index
       @vehicles = Vehicle.all 
@@ -23,15 +23,14 @@ class VehiclesController < ApplicationController
     end
 
     def show
-        @vehicle = Vehicle.find_by(id: params[:id])
+        
     end
 
     def edit
-      @vehicle = Vehicle.find_by(id: params[:id])
+      
     end
 
     def update
-        @vehicle = Vehicle.find_by(id: params[:id])
       if @vehicle.update(vehicle_params)
         flash[:notice] = "Vehicle Updated"
         redirect_to vehicles_path

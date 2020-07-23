@@ -1,5 +1,5 @@
 class VehicleIssuesController < ApplicationController
-  before_action :log_in
+  before_action :log_in, :set_vehicle 
 
     def index
       @vehicle = current_user.vehicles.all
@@ -24,7 +24,6 @@ class VehicleIssuesController < ApplicationController
     end
 
     def show
-      @vehicle_issue = VehicleIssue.find_by(id: params[:id])
       @issue = Issue.find_by_id(@vehicle_issue.issue_id)
       @vehicle = Vehicle.find_by_id(@vehicle_issue.vehicle_id)
     end
@@ -34,7 +33,6 @@ class VehicleIssuesController < ApplicationController
     end
 
     def update
-      @vehicle_issue = VehicleIssue.find_by(id: params[:id])
       if @vehicle_issue.update(vehicle_issue_params)
         flash[:notice] = "Vehicle Updated"
         redirect_to vehicles_path
