@@ -1,5 +1,6 @@
 class VehiclesController < ApplicationController
-  before_action :log_in, :set_vehicle, except: [:destroy]
+  before_action :log_in, :set_vehicle, except: [:high_mileage, :destroy]
+  before_action :vehicle_high_miles, only: [:high_mileage, :show]
 
     def index
       @vehicles = Vehicle.all 
@@ -22,7 +23,11 @@ class VehiclesController < ApplicationController
     end
 
     def show
-        
+        render :high_mileage
+    end
+
+    def high_mileage
+  
     end
 
     def edit
@@ -45,6 +50,10 @@ class VehiclesController < ApplicationController
     end
 
     private
+
+    def vehicle_high_miles
+      @vehicles = Vehicle.all.high_mileage_vehicles
+    end
 
     def vehicle_params
       params.require(:vehicle).permit(:vehicle_name, :make, :model, :year, :mileage, :wheel_size, :color)

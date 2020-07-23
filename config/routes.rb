@@ -24,10 +24,12 @@ Rails.application.routes.draw do
 
 
   resources :vehicles do
-
+    
     resources :vehicle_issues
 
   end
+
+  get 'vehicles/high_mileage', :to => 'vehicles#high_mileage'
 
   
 

@@ -1,32 +1,24 @@
 class IssuesController < ApplicationController
-  before_action :log_in, set_issue
+  before_action :log_in, :set_issue
   #make use of before_action
   #review associations
   #use before_action, set_issue, set_vehicle, if logged_in?
     def index
-        @issues = Issue.all
-        @vehicle = current_user.vehicle
+      @issues = Issue.all
     end
     
     def new
-     
-        @issue = Issue.new
-      
+      @issue = Issue.new
     end
 
- #@ui = UserIssue.new 
-          #@ui.issue_id = @issue.id
-          #@ui.user_id = @current_user.id
-          #@ui.save
-
     def create
-        @issue = Issue.new(issue_params)
-        if @issue.save
-          redirect_to issue_path(@issue)
-        else
-          flash[:notice]= "Issue didn't save"
-          render :new
-        end
+      @issue = Issue.new(issue_params)
+      if @issue.save
+        redirect_to issue_path(@issue)
+      else
+        flash[:notice]= "Issue didn't save"
+        render :new
+      end
     end
 
     def show

@@ -1,10 +1,4 @@
-
-
-<h3 class="gray">These are all of your Vehicle(s)</h3>
-
-<%= link_to "Create a vehicle", new_vehicle_path %>
-
-
+<h2 class="red">Vehicles with High Mileage</h2>
 <div>
 <table class="table">
  <thead class="white">
@@ -22,7 +16,7 @@
 <tbody class="white">
 
 <tr>
-<% current_user.vehicles.each do |v| %>
+<% @vehicles.each do |v| %>
 <th scope="col"></th>
 <td><%=v.vehicle_name  %></td>
 <td><%=v.make.capitalize %></td>
@@ -37,10 +31,3 @@
 </tbody>
 </table>
 </div>
-
-<h2><%= link_to "What issues have your vehicles had?", vehicle_issues_path %></h2>
-
-<h2><%= link_to "All High Mileage Vehicles", vehicles_high_mileage_path %></h2>
-
-
-
