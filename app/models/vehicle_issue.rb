@@ -2,6 +2,7 @@ class VehicleIssue < ApplicationRecord
     belongs_to :issue
     belongs_to :vehicle
     
+    validates :description_of_issue, presence: true
 
 
 
@@ -28,7 +29,7 @@ create_table "issues", force: :cascade do |t|
     t.integer "issue_id"
     t.boolean "resolved"
     t.string "description_of_issue"
-    
+
     #t.integer vehicle_id
     #grabs user id and issue id where user submits description
   end
