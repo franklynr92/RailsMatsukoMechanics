@@ -1,35 +1,51 @@
 
 <br />
 <br />
-<div>
+
 <table style="width:75%">
-<thead class="white">
+<thead class="yellow">
 <tr>
 <th>Vehicle Name</th>
-<th>Vehicle Issue Id #</th>
-<th>Vehicle Issue Name</th>
-<th>Vehicle Issue Category </th>
-<th>Vehicle Issue Description </th>
 <th>Make</th>
 <th>Model</th>
 <th>Year</th>
 <th>Color</th>
-<th>Vehicle Issue Resolved? </th>
+
 </tr>
 </thead>
 <tbody class="white">
 <tr>
 <td><%= @vehicle.vehicle_name %></td>
-<td><%= @vehicle_issue.id  %></td>
-<td><%= @issue.name_of_your_issue.capitalize %></td>
-<td><%= @vehicle_issue.category.capitalize  if @vehicle_issue.category %></td>
-<td><%= @vehicle_issue.description_of_issue %></td>
 <td><%= @vehicle.make.capitalize %></td>
 <td><%= @vehicle.model.capitalize %></td>
 <td><%= @vehicle.year %></td>
 <td><%= @vehicle.color %></td>
+
+</tr>
+</tbody>
+</table>
+
+<table style="width:75%">
+<thead class="yellow">
+<tr>
+
+
+<th>Vehicle Issue Name</th>
+<th>Vehicle Issue Category </th>
+<th>Vehicle Issue Description </th>
+
+<th>Vehicle Issue Resolved? </th>
+</tr>
+</thead>
+<tbody class="white">
+<tr>
+
+
+<td><%= @issue.name_of_your_issue.capitalize %></td>
+<td><%= @vehicle_issue.category.capitalize  if @vehicle_issue.category %></td>
+<td><%= @vehicle_issue.description_of_issue %></td>
+
 <td><%= @vehicle_issue.resolved %></td>
 </tr>
 </tbody>
 </table>
-</div>

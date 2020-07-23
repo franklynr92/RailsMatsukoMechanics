@@ -1,10 +1,11 @@
-<h1>hello <%= @user.name %></h1>
-<h2 class="white">You have <p class="erb"><%= @user.vehicles.length %> vehicles</p></h2>
+<h2 class="gray">Hello <%= @user.name %></h2>
+<h3 class="white">You have <p class="erb"><%= @user.vehicles.length %> vehicle(s)</p></h3>
 
+
+<h2><%= link_to "What issues have you had?", issues_path%></h2>
 <div class="white">
-<h1><%= link_to "What issues have you had?", issues_path%></h1>
 <%= link_to "Your Vehicles Home", user_vehicles_path(@user.id) %>
 <%= link_to "New Vehicles", new_user_vehicle_path(@user.id) %>
-
+<br>
 <%= link_to 'Log Out', logout_path, method: :delete %>
-</div>
+<div>

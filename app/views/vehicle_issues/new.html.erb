@@ -1,13 +1,10 @@
-<h1>Add your issue for your vehicle</h1>
+<h3 class="white">Add your issue for the <i class="erb"><%=@vehicle.vehicle_name%></i> Vehicle</h3>
 
-<div class="col-4">
+<div class="col-6">
 <div class="alert alert-success" role="alert">
+
 <%= form_for @vehicle_issue do |f|  %>
 <%= f.hidden_field :vehicle_id, :value => @vehicle.id %>
-
-
-<%= f.label :resolved %>
-<%= f.check_box :resolved%>
 
 <%= f.label :category%>
 <%= f.text_field :category%>
@@ -15,11 +12,15 @@
 <%= f.label :description_of_issue %>
 <%= f.text_area :description_of_issue %>
 
+
 <%= f.collection_select :issue_id, @issues, :id, :name_of_your_issue, prompt: "Please select and issue" %>
 
+<%= f.label :resolved %>
+<%= f.check_box :resolved%>
 
 
 <%= f.submit "Create your issue" %>
+
 <% end %>
 </div>
 </div>

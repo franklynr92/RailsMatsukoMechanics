@@ -1,6 +1,8 @@
-<h1>Add your vehicle!</h1>
-<h1>hello <%= current_user.name %></h1>
+<div class="gray">
+<h3>Hello <i class= "erb"><%= current_user.name %></i></h3>
+<h4>Add your vehicle!</h4>
 
+</div>
 <div class="alert alert-success" role="alert">
 
 <%= form_for @vehicle do |f| %>

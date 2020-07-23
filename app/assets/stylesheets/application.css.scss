@@ -47,13 +47,32 @@
     width: 30%;
 }
 
+.yellow {
+    background-color: rgb(233, 233, 26);
+    width: 30%;
+}
+
 .erb {
     color: blue;
 }
 
 h1 {
-    color: RGBA(250, 10, 250, 1);
+    background-color: rgb(175,167,167);
     font-weight: bold;
+    width: 30%
+}
+
+.red {
+    color: RGBA(181,13,10,1);
+    font-weight: bold;
+    background-color: rgb(175,167,167);
+    width: 30%
+}
+
+.gray {
+    background-color: rgb(175,167,167);
+    font-weight: bold;
+    width: 20%
 }
 
 /* a:visited {
