@@ -11,15 +11,14 @@ class VehiclesController < ApplicationController
     end
 
     def create
-        @vehicle = Vehicle.new(vehicle_params)
-        @vehicle.user_id = session[:user_id]
-     if @vehicle.save
+      @vehicle = Vehicle.new(vehicle_params)
+      @vehicle.user_id = session[:user_id]
+      if @vehicle.save
         redirect_to vehicle_path(@vehicle)  
-     else
+      else
         flash[:notice] = "Vehicle not saved"
         render :new
-     end
-
+      end
     end
 
     def show
