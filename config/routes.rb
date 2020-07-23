@@ -6,15 +6,12 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get 'exit', to: 'sessions#destroy', as: :logout
+  get 'vehicles/high_mileage', :to => 'vehicles#high_mileage'
 
-  
-
-  resources :issues 
-   
+  resources :issues    
 
   resources :vehicle_issues
     
-  
 
   resources :users do
 
@@ -22,19 +19,10 @@ Rails.application.routes.draw do
 
   end
 
-
   resources :vehicles do
     
     resources :vehicle_issues
 
-  end
-
-  get 'vehicles/high_mileage', :to => 'vehicles#high_mileage'
-
-  
-
-
-
- 
+  end 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
