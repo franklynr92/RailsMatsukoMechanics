@@ -1,2 +1,9 @@
 add attributes for vin, and engine size
 scan barcode to get vin
+Vehicles or vheicle issues
+#if params[:mechanic] else flash[:notice] = "You must be an admin to update" elsif current_user else flash[:notice] = "this is not your issue"
+
+
+sort the issue
+#@unsorted_issues = current_user.user_issues {|ui| Issue.find_by_id(ui.issue_id)} #update associations so we don't have to map them out
+        #@issues = @unsorted_issues.sort{|a, b| a.vehicle_id <=> b.vehicle_id }

@@ -1,26 +1,16 @@
 class VehicleIssuesController < ApplicationController
+  before_action :log_in
 
     def index
-      if logged_in?
-        @vehicle = current_user.vehicles.all
-        @issues = Issue.all
-      else 
-        flash[:notice] = "Please log in"
-        redirect_to '/login' 
-      end
+      @vehicle = current_user.vehicles.all
+      @issues = Issue.all
     end
 
 
     def new
-        if logged_in?
-          #grab the id of the vehicle from the route in the params
-          @vehicle_issue = VehicleIssue.new
-          @vehicle = Vehicle.find_by(id: params[:vehicle_id])
-          @issues = Issue.all
-        else 
-          flash[:notice] = "Please log in"
-          redirect_to '/login' 
-        end
+        @vehicle_issue = VehicleIssue.new
+        @vehicle = Vehicle.find_by(id: params[:vehicle_id])
+        @issues = Issue.all
     end
 
     def create
@@ -40,29 +30,18 @@ class VehicleIssuesController < ApplicationController
     end
 
     def edit
-      if logged_in?
-        @vehicle_issue = VehicleIssue.update(vehicle_issue_params)
-      else
-        flash[:notice] = "Please log in"
-          redirect_to '/login' 
-        end
+      @vehicle_issue = VehicleIssue.update(vehicle_issue_params)
     end
 
     def update
-      
-      if logged_in? #if params[:mechanic] else flash[:notice] = "You must be an admin to update" elsif current_user else flash[:notice] = "this is not your issue"
-        @vehicle_issue = VehicleIssue.find_by(id: params[:id])
-        if @vehicle_issue.update(vehicle_issue_params)
+      @vehicle_issue = VehicleIssue.find_by(id: params[:id])
+      if @vehicle_issue.update(vehicle_issue_params)
         flash[:notice] = "Vehicle Updated"
         redirect_to vehicles_path
-        else
-          flash[:notice] = "No changes made"
-          render :edit
-        end
       else
-          flash[:notice] = "Please log in"
-          redirect_to '/login' 
-        end
+        flash[:notice] = "No changes made"
+        render :edit
+      end
     end
 
 

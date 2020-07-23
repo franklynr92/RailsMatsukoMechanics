@@ -8,7 +8,7 @@ class OmniauthController < ApplicationController
           u.email = auth['info']['email']
         end
         
-        log_in @user
+        session[:user_id] = @user.id
         redirect_to user_path @user.id
       end
     

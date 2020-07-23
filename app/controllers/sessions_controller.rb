@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
     
     
     def create
-    #if params[:user]
       @user = User.find_by(user_name: params[:user][:user_name])
       if @user && @user.authenticate(params[:user][:password])
         log_in @user

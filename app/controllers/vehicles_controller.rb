@@ -1,22 +1,13 @@
 class VehiclesController < ApplicationController
+  before_action :log_in
 
     def index
-        if logged_in?
-          @vehicles = Vehicle.all 
-        else
-          flash[:notice]= "Please log in"
-          redirect_to '/login' 
-        end 
+      @vehicles = Vehicle.all 
     end
 
 
     def new
-        if logged_in?
-          @vehicle = Vehicle.new
-        else 
-          flash[:notice] = "Please log in"
-          redirect_to '/login' 
-        end
+     @vehicle = Vehicle.new
     end
 
     def create
@@ -32,39 +23,22 @@ class VehiclesController < ApplicationController
     end
 
     def show
-        if logged_in?
-          @vehicle = Vehicle.find_by(id: params[:id])
-          
-        else
-          flash[:notice] = "Please log in"
-          redirect_to '/login' 
-        end
+        @vehicle = Vehicle.find_by(id: params[:id])
     end
 
     def edit
-      if logged_in?
-        @vehicle = Vehicle.find_by(id: params[:id])
-      else
-        flash[:notice] = "Please log in"
-          redirect_to '/login' 
-        end
+      @vehicle = Vehicle.find_by(id: params[:id])
     end
 
     def update
-      
-      if logged_in?
         @vehicle = Vehicle.find_by(id: params[:id])
-        if @vehicle.update(vehicle_params)
+      if @vehicle.update(vehicle_params)
         flash[:notice] = "Vehicle Updated"
         redirect_to vehicles_path
-        else
-          flash[:notice] = "No changes made"
-          render :edit
-        end
       else
-          flash[:notice] = "Please log in"
-          redirect_to '/login' 
-        end
+        flash[:notice] = "No changes made"
+        render :edit
+      end
     end
 
     def destroy

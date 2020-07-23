@@ -1,14 +1,15 @@
 <h1>Welcome</h1>
+<div class= "white">
+<h2><%= link_to "Sign up", signup_path %></h2>
 
-<%= link_to "Sign up", signup_path %>
+<hr class="weight">
 
-OR
-
-<%= link_to "Log in", login_path %>
+<h2><%= link_to "Log in", login_path %></h2>
+</div>
 
 <div class="row">
     <div class="white"> 
-    <div class="col-6">
+    
       <a class="btn btn-block btn-social btn-google" href='/auth/google_oauth2'><span class="fa fa-google"></span> Log in with Google</a>
     </div>
 </div>
