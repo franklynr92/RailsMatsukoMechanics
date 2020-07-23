@@ -12,8 +12,11 @@ helper_method :current_user, :current_mechanic, :logged_in?, :log_in, :log_out
     #active admin 
     #join table
 
-    def log_in(user)
-      session[:user_id] = user.id
+    def log_in
+      unless logged_in?
+        flash[:notice]= "Please log in"
+        redirect_to '/login' 
+      end
     end
 
     def logged_in?
