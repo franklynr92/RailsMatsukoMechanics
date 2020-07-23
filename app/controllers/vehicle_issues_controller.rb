@@ -24,18 +24,24 @@ class VehicleIssuesController < ApplicationController
     end
 
     def create
-
-    
-
+      @vehicle_issue = VehicleIssue.new(vehicle_issue_params)
+      if @vehicle_issue.save
+        redirect_to vehicle_issue_path(@vehicle_issue)
+      else
+        flash[:notice] = "issue was not saved"
+        render :new
+      end
     end
 
     def show
-        
+      @vehicle_issue = VehicleIssue.find_by(id: params[:id])
+      @issue = Issue.find_by_id(@vehicle_issue.issue_id)
+      @vehicle = Vehicle.find_by_id(@vehicle_issue.vehicle_id)
     end
 
     def edit
       if logged_in?
-        @vehicle_issue = VehicleIssue.find_by(id: params[:id])
+        @vehicle_issue = VehicleIssue.update(vehicle_issue_params)
       else
         flash[:notice] = "Please log in"
           redirect_to '/login' 
@@ -63,7 +69,7 @@ class VehicleIssuesController < ApplicationController
     private
 
     def vehicle_issue_params
-      params.require(:vehicle).permit(:description_of_issue, :resolved, :issue_id, :user_id)
+      params.require(:vehicle_issue).permit(:description_of_issue, :resolved, :issue_id, :vehicle_id)
     end
 
 end
