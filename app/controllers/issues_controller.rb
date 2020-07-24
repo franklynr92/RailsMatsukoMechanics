@@ -1,8 +1,6 @@
 class IssuesController < ApplicationController
   before_action :log_in, :set_issue
-  #make use of before_action
-  #review associations
-  #use before_action, set_issue, set_vehicle, if logged_in?
+
     def index
       @issues = Issue.all
     end

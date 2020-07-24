@@ -4,7 +4,7 @@ class Issue < ApplicationRecord
     has_many :users, through: :vehicles
     
     
-    #category change
+    
 
     
 end
