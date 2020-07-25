@@ -5,6 +5,18 @@
 <%= link_to "Create a vehicle", new_vehicle_path %>
 
 
+<%= form_for vehicles_path, method: :get  do |f| %>
+
+    <%= f.label :model %>
+    <%= f.text_field :model %>
+    
+    <%= f.submit "search for your vehicle" %>
+
+<% end %>
+
+
+
+
 <div>
 <table class="table">
  <thead class="white">
@@ -22,21 +34,23 @@
 <tbody class="white">
 
 <tr>
-<% current_user.vehicles.each do |v| %>
+<% @vehicles.each do |car| %>
 <th scope="col"></th>
-<td><%=v.vehicle_name  %></td>
-<td><%=v.make.capitalize %></td>
-<td><%=link_to "#{v.model.capitalize}", vehicle_path(v) %></td>
-<td><%= v.year %></td>
-<td><%= v.mileage %></td>
-<td><%=v.wheel_size %></td>
-<td><%= v.color %></td>
+<td><%=car.vehicle_name  %></td>
+<td><%=car.make.capitalize %></td>
+<td><%=link_to car.model.capitalize, vehicle_path(car) %></td>
+<td><%= car.year %></td>
+<td><%= car.mileage %></td>
+<td><%=car.wheel_size %></td>
+<td><%= car.color %></td>
 
 </tr>
 <% end %>
 </tbody>
 </table>
 </div>
+
+
 
 <h2><%= link_to "What issues have your vehicles had?", vehicle_issues_path %></h2>
 

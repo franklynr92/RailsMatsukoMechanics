@@ -3,7 +3,11 @@ class VehiclesController < ApplicationController
   before_action :vehicle_high_miles, only: [:high_mileage, :show]
 
     def index
-      @vehicles = Vehicle.all 
+      @vehicles = current_user.vehicles
+      if params[:"/vehicles"]
+        params.permit[:"/vehicles"]
+        @vehicles= Vehicle.find_model(params[:"/vehicles"][:model])
+      end
     end
 
 
@@ -12,8 +16,10 @@ class VehiclesController < ApplicationController
     end
 
     def create
+    
       @vehicle = Vehicle.new(vehicle_params)
       @vehicle.user_id = session[:user_id]
+
       if @vehicle.save
         redirect_to vehicle_path(@vehicle)  
       else
@@ -23,7 +29,7 @@ class VehiclesController < ApplicationController
     end
 
     def show
-        render :high_mileage
+        
     end
 
     def high_mileage

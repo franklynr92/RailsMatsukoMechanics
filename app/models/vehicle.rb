@@ -14,6 +14,13 @@ class Vehicle < ApplicationRecord
         self.mileage >= 100000 ? true : false
     end
 
+
+    #User.second.vehicles.high_mileage_vehicles.where("model LIKE ? ", "%Focus%"), don't have to interploate when in ruby code
+    
+
+    def self.find_model(car)
+      self.where("model LIKE ? ","%#{car}%")
+    end
     
 end
 
