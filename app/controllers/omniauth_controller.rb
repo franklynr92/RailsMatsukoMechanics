@@ -12,7 +12,7 @@ class OmniauthController < ApplicationController
         redirect_to user_path @user.id
       end
     
- private
+private
     
       def auth
         request.env['omniauth.auth']
