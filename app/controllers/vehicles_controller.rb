@@ -6,7 +6,7 @@ class VehiclesController < ApplicationController
       @vehicles = current_user.vehicles
       if params[:"/vehicles"]
         params.permit[:"/vehicles"]
-        @vehicles= Vehicle.find_model(params[:"/vehicles"][:model])
+        @vehicles = Vehicle.find_model(params[:"/vehicles"][:model])
       end
     end
 
