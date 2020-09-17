@@ -7,3 +7,7 @@ Vehicles or vheicle issues
 sort the issue
 #@unsorted_issues = current_user.user_issues {|ui| Issue.find_by_id(ui.issue_id)} #update associations so we don't have to map them out
         #@issues = @unsorted_issues.sort{|a, b| a.vehicle_id <=> b.vehicle_id }
+
+        add ob2 scanners - list, plugin, api
+        diagrams - list, api
+        order parts - api
