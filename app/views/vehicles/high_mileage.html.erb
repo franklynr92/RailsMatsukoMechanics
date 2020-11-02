@@ -17,15 +17,14 @@
 
 <tr>
 <% @vehicles.each do |v| %>
-<th scope="col"></th>
-<td><%=v.vehicle_name  %></td>
-<td><%=v.make.capitalize %></td>
-<td><%=link_to "#{v.model.capitalize}", vehicle_path(v) %></td>
-<td><%= v.year %></td>
-<td><%= v.mileage %></td>
-<td><%=v.wheel_size %></td>
-<td><%= v.color %></td>
-
+  <th scope="col"></th>
+   <td><%=v.vehicle_name  %></td>
+   <td><%=v.make.capitalize %></td>
+   <td><%=link_to "#{v.model.capitalize}", vehicle_path(v) %></td>
+   <td><%= v.year %></td>
+   <td><%= v.mileage %></td>
+   <td><%=v.wheel_size %></td>
+   <td><%= v.color %></td>
 </tr>
 <% end %>
 </tbody>
