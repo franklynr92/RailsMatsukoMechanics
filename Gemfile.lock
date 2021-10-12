@@ -146,8 +146,8 @@ GEM
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
-    nio4r (2.5.4)
-    nio4r (2.5.4-java)
+    nio4r (2.5.8)
+    nio4r (2.5.8-java)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     nokogiri (1.10.10-java)
@@ -175,9 +175,9 @@ GEM
       omniauth (~> 1.9)
     popper_js (1.16.0)
     public_suffix (4.0.6)
-    puma (4.3.6)
+    puma (4.3.9)
       nio4r (~> 2.0)
-    puma (4.3.6-java)
+    puma (4.3.9-java)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-proxy (0.6.5)
@@ -314,7 +314,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   omniauth-google-oauth2
-  puma (~> 4.1)
+  puma (~> 4.3)
   rails (~> 6.0.3, >= 6.0.3.2)
   rails-erd
   sass-rails (>= 6)
